@@ -35,4 +35,4 @@ Step 3 of the assignment: Write a function that loops through the array and disp
 5. display all the book properties on a new line or inside a table
 
 ### progress for `function that loops through the array and displays each book on the page`
-1. 
+It works fine so far and I made it display the title for now. I will have to decide if the info will be displayed in a table or with a prototype function on 1 line which should also suffice for this project I think. I will continue with the assignment and edit the plan as I go. When the functionality is there and working it will be easier to adjust for visual display.
