@@ -5,3 +5,5 @@ CVS
 Thumbs.db
 .vscode
 .prettierignore
+.prettierrc.json
+.eslintrc.json
