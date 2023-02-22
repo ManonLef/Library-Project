@@ -9,10 +9,19 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-  const title = prompt("title");
-  const author = prompt("author");
-  const pages = prompt("pages");
-  const read = prompt("read true/false")
+  const title
+  const author
+  const pages
+  const read
   const libraryBook = new Book(title, author, pages, read)
   return myLibrary.push(libraryBook);
 }
+
+function displayBooks () {
+
+}
+
+addBookToLibrary("manon", "bla", 122, "not read")
+addBookToLibrary("how I", "met her", 122, "read")
+addBookToLibrary("yes sir", "mam", 132, "not read")
+addBookToLibrary("no mam", "sir", 100, "not read")
