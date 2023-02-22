@@ -36,3 +36,15 @@ Step 3 of the assignment: Write a function that loops through the array and disp
 
 ### progress for `function that loops through the array and displays each book on the page`
 It works fine so far and I made it display the title for now. I will have to decide if the info will be displayed in a table or with a prototype function on 1 line which should also suffice for this project I think. I will continue with the assignment and edit the plan as I go. When the functionality is there and working it will be easier to adjust for visual display.
+
+Step 4: Add a “NEW BOOK” button that brings up a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read and anything else you might want.
+
+### Pseudocode for `add a "NEW BOOK button"`
+1. add a button to the html. I would like to have that as part of the UI
+2. create a card that pops up with form elements for
+    - author
+    - title
+    - number of pages
+    - read or not
+    - SUBMIT button
+3. pass the above to the addBookToLibrary fuction.
