@@ -19,6 +19,20 @@ function addBookToLibrary() {
 - use user input to create a new book object using the `Book` constructor
 - store/push book into the `myLibrary` array
 
-### progress
+### progress for the `addBookToLibrary` function.
 - used prompts for now (until I work on the form popup)
 - function works and adds objects with the name `Book` to `myLibrary`
+
+## 20230222
+
+Step 3 of the assignment: Write a function that loops through the array and displays each book on the page. You can display them in some sort of table, or each on their own “card”. It might help for now to manually add a few books to your array so you can see the display.
+
+### Pseudocode for `function that loops through the array and displays each book on the page`
+1. name the function displayBooks
+2. invoke some `addBookToLibrary()` functions and remove the prompts during testing.
+3. create a loop that goes through each object in the array `myLibrary`
+4. for every book I want to add an element to the DOM now as a starter to get them displayed.
+5. display all the book properties on a new line or inside a table
+
+### progress for `function that loops through the array and displays each book on the page`
+1. 

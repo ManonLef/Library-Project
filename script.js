@@ -8,20 +8,14 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-function addBookToLibrary() {
-  const title
-  const author
-  const pages
-  const read
-  const libraryBook = new Book(title, author, pages, read)
+function addBookToLibrary(title, author, pages, read) {
+  const libraryBook = new Book(title, author, pages, read);
   return myLibrary.push(libraryBook);
 }
 
-function displayBooks () {
+function displayBooks() {}
 
-}
-
-addBookToLibrary("manon", "bla", 122, "not read")
-addBookToLibrary("how I", "met her", 122, "read")
-addBookToLibrary("yes sir", "mam", 132, "not read")
-addBookToLibrary("no mam", "sir", 100, "not read")
+addBookToLibrary("manon", "bla", 122, "not read");
+addBookToLibrary("how I", "met her", 122, "read");
+addBookToLibrary("yes sir", "mam", 132, "not read");
+addBookToLibrary("no mam", "sir", 100, "not read");
