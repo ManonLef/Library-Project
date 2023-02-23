@@ -21,10 +21,20 @@ function displayBooks() {
   }
   // loop through and display book info
   for (let i = 0; i < myLibrary.length; i++) {
-    const bookInfo = document.createElement("p");
+    //create book card
+    const bookCard = document.createElement("div")
+    bookCard.className = "bookcard";
+    // fill bookcard
+    
+    const titleDiv = document.createElement("div");
+    titleDiv.className = "title-div"
     const title = document.createTextNode(myLibrary[i].title);
-    document.getElementById("books-container").appendChild(bookInfo);
-    bookInfo.appendChild(title);
+    titleDiv.appendChild(title)
+    bookCard.appendChild(titleDiv);
+
+    const author = document.createTextNode(myLibrary[i].author)
+    // result bookcard
+    document.getElementById("books-container").appendChild(bookCard);
   }
 }
 
