@@ -15,7 +15,7 @@ function addBookToLibrary(title, author, pages, read) {
 
 function displayBooks() {
   // first erase previous list
-  const bookContainer = document.getElementById("container");
+  const bookContainer = document.getElementById("books-container");
   while (bookContainer.firstChild) {
     bookContainer.removeChild(bookContainer.lastChild);
   }
@@ -23,7 +23,7 @@ function displayBooks() {
   for (let i = 0; i < myLibrary.length; i++) {
     const bookInfo = document.createElement("p");
     const title = document.createTextNode(myLibrary[i].title);
-    document.getElementById("container").appendChild(bookInfo);
+    document.getElementById("books-container").appendChild(bookInfo);
     bookInfo.appendChild(title);
   }
 }
@@ -50,8 +50,10 @@ function submitBook() {
   const pages = document.getElementById("pages");
   const read = document.getElementById("read");
   addBookToLibrary(title.value, author.value, pages.value, read.value);
-  hideForm();
   displayBooks();
+  // reset form
+  document.querySelector("form").reset();
+  hideForm();
 }
 
 // temporary check to see if function works and fill the myLibrary array to test other functions
