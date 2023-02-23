@@ -48,8 +48,9 @@ function displayBooks() {
     // delete button
     const deleteButton = document.createElement("button");
     deleteButton.setAttribute("data-index", index);
+    deleteButton.className = "delete-button";
     deleteButton.textContent = "delete";
-    bookCard.appendChild(deleteButton)
+    bookCard.appendChild(deleteButton);
     // result bookcard
     document.getElementById("books-container").appendChild(bookCard);
   });
@@ -67,7 +68,7 @@ function hideForm() {
 const addBookButton = document.getElementById("add-book");
 addBookButton.addEventListener("click", unhideForm);
 
-// submit functionality
+// submit new book button functionality
 const submitButton = document.querySelector("button");
 submitButton.addEventListener("click", submitBook);
 
@@ -83,8 +84,25 @@ function submitBook() {
   hideForm();
 }
 
+// test for delete button
+document.addEventListener("click", (e) => {
+  const target = e.target.closest(".delete-button");
+  if (target) {
+    noob();
+  }
+});
+
 // temporary check to see if function works and fill the myLibrary array to test other functions
 
 addBookToLibrary("book 1", "author 1", 111, "read");
 addBookToLibrary("book 2", "author 2", 222, "not read");
 displayBooks();
+
+// const delButton = document.querySelectorAll(".delete-button");
+// delButton.forEach((button) => {
+//   button.addEventListener("click", noob);
+// });
+
+function noob() {
+  console.log("noob");
+}
