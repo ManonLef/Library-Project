@@ -24,44 +24,6 @@ function displayBooks() {
   }
 }
 
-// add elements to the DOM
-
-function createForm(parent, child) {
-  child.id = "form";
-  child.setAttribute("action", "javascript:void(0);");
-  parent.appendChild(child);
-}
-
-function createTitleInput(parent, child) {
-  child.className = "title-container";
-  parent.appendChild(child);
-  // create label for title
-  const titleLabel = document.createElement("label");
-  titleLabel.setAttribute("for", "title");
-  titleLabel.textContent = "title";
-  parent.appendChild(titleLabel);
-  // create input field for title
-  const titleInput = document.createElement("input");
-  titleInput.setAttribute("type", "text");
-  titleInput.setAttribute("name", "title");
-  titleInput.setAttribute("id", "title");
-  titleInput.setAttribute("placeholder", "title");
-  parent.appendChild(titleInput);
-}
-
-function createInputForm() {
-  // container creation
-  const formContainer = document.createElement("div");
-  document.getElementById("container").appendChild(formContainer);
-  formContainer.className = "form-container";
-  // create form
-  const form = document.createElement("form");
-  createForm(formContainer, form);
-  // create container for title
-  const titleContainer = document.createElement("div");
-  createTitleInput(form, titleContainer);
-}
-
 // button to add book
 const addBookButton = document.getElementById("add-book");
 addBookButton.addEventListener("click", createInputForm);
