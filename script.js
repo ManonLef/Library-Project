@@ -24,6 +24,7 @@ function displayBooks() {
   }
 }
 
+// temporary check to see if function works and fill the myLibrary array to test other functions
 addBookToLibrary("manon", "bla", 122, "not read");
 addBookToLibrary("how I", "met her", 122, "read");
 addBookToLibrary("yes sir", "mam", 132, "not read");
