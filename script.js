@@ -20,22 +20,34 @@ function displayBooks() {
     bookContainer.removeChild(bookContainer.lastChild);
   }
   // loop through and display book info
-  for (let i = 0; i < myLibrary.length; i++) {
-    //create book card
-    const bookCard = document.createElement("div")
+  myLibrary.forEach((Book) => {
+    // create book card
+    const bookCard = document.createElement("div");
     bookCard.className = "bookcard";
     // fill bookcard
-    
     const titleDiv = document.createElement("div");
-    titleDiv.className = "title-div"
-    const title = document.createTextNode(myLibrary[i].title);
-    titleDiv.appendChild(title)
+    const title = document.createTextNode(Book.title);
+    titleDiv.appendChild(title);
     bookCard.appendChild(titleDiv);
 
-    const author = document.createTextNode(myLibrary[i].author)
+    const authorDiv = document.createElement("div");
+    const author = document.createTextNode(Book.author);
+    authorDiv.appendChild(author);
+    bookCard.appendChild(authorDiv);
+
+    const pagesDiv = document.createElement("div");
+    const pages = document.createTextNode(Book.pages);
+    pagesDiv.appendChild(pages);
+    bookCard.appendChild(pagesDiv);
+
+    const readDiv = document.createElement("div");
+    const read = document.createTextNode(Book.read);
+    readDiv.appendChild(read);
+    bookCard.appendChild(readDiv);
+
     // result bookcard
     document.getElementById("books-container").appendChild(bookCard);
-  }
+  });
 }
 
 function unhideForm() {
