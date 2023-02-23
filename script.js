@@ -29,7 +29,9 @@ const addBookButton = document.getElementById("add-book");
 addBookButton.addEventListener("click", openInputForm);
 
 function openInputForm() {
-  
+  const formContainer = document.createElement("div");
+  document.getElementById("container").appendChild(formContainer)
+  formContainer.className = "form";
 }
 
 // temporary check to see if function works and fill the myLibrary array to test other functions
