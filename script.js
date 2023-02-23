@@ -84,25 +84,21 @@ function submitBook() {
   hideForm();
 }
 
+function removeBook(cardIndex) {
+  console.log(cardIndex.getAttribute("data-index"));
+  myLibrary.splice(cardIndex.getAttribute("data-index"), 1);
+  displayBooks();
+}
+
 // test for delete button
 document.addEventListener("click", (e) => {
   const target = e.target.closest(".delete-button");
   if (target) {
-    noob();
+    removeBook(target);
   }
 });
-
 // temporary check to see if function works and fill the myLibrary array to test other functions
 
 addBookToLibrary("book 1", "author 1", 111, "read");
 addBookToLibrary("book 2", "author 2", 222, "not read");
 displayBooks();
-
-// const delButton = document.querySelectorAll(".delete-button");
-// delButton.forEach((button) => {
-//   button.addEventListener("click", noob);
-// });
-
-function noob() {
-  console.log("noob");
-}
