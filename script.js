@@ -24,6 +24,31 @@ function displayBooks() {
   }
 }
 
+// add elements to the DOM
+
+function createForm(parent, child) {
+  child.id = "form";
+  child.setAttribute("action", "javascript:void(0);");
+  parent.appendChild(child);
+}
+
+function createTitleInput(parent, child) {
+  child.className = "title-container";
+  parent.appendChild(child);
+  // create label for title
+  const titleLabel = document.createElement("label");
+  titleLabel.setAttribute("for", "title");
+  titleLabel.textContent = "title";
+  parent.appendChild(titleLabel);
+  // create input field for title
+  const titleInput = document.createElement("input");
+  titleInput.setAttribute("type", "text");
+  titleInput.setAttribute("name", "title");
+  titleInput.setAttribute("id", "title");
+  titleInput.setAttribute("placeholder", "title");
+  parent.appendChild(titleInput);
+}
+
 function createInputForm() {
   // container creation
   const formContainer = document.createElement("div");
@@ -31,27 +56,10 @@ function createInputForm() {
   formContainer.className = "form-container";
   // create form
   const form = document.createElement("form");
-  form.id = "form"
-  form.setAttribute("action", "javascript:void(0);")
-  formContainer.appendChild(form);
+  createForm(formContainer, form);
   // create container for title
   const titleContainer = document.createElement("div");
-  titleContainer.className = "title-container";
-  form.appendChild(titleContainer);
-  // create label for title
-  const titleLabel = document.createElement("label")
-  titleLabel.setAttribute("for", "title");
-  titleLabel.textContent = "Title"
-  titleContainer.appendChild(titleLabel);
-  // create input field for title
-  const titleInput = document.createElement("input");
-  titleInput.setAttribute("type", "text");
-  titleInput.setAttribute("name", "title")
-  titleInput.setAttribute("id", "title")
-  titleInput.setAttribute("placeholder", "title")
-  titleContainer.appendChild(titleInput);
-  // display form
-  formContainer.appendChild(form);
+  createTitleInput(form, titleContainer);
 }
 
 // button to add book
