@@ -1,0 +1,9 @@
+.form-container {
+  border: 3px solid pink;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}

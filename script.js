@@ -34,17 +34,22 @@ function createInputForm() {
   form.id = "form"
   form.setAttribute("action", "javascript:void(0);")
   formContainer.appendChild(form);
+  // create container for title
+  const titleContainer = document.createElement("div");
+  titleContainer.className = "title-container";
+  form.appendChild(titleContainer);
   // create label for title
   const titleLabel = document.createElement("label")
   titleLabel.setAttribute("for", "title");
-  form.appendChild(titleLabel);
+  titleLabel.textContent = "Title"
+  titleContainer.appendChild(titleLabel);
   // create input field for title
   const titleInput = document.createElement("input");
   titleInput.setAttribute("type", "text");
   titleInput.setAttribute("name", "title")
   titleInput.setAttribute("id", "title")
   titleInput.setAttribute("placeholder", "title")
-  form.appendChild(titleInput);
+  titleContainer.appendChild(titleInput);
   // display form
   formContainer.appendChild(form);
 }
