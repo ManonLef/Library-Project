@@ -47,4 +47,18 @@ Step 4: Add a “NEW BOOK” button that brings up a form allowing users to inpu
     - number of pages
     - read or not
     - SUBMIT button
-3. pass the above to the addBookToLibrary fuction.
+3. pass the above to the addBookToLibrary fuction upon submit
+4. delete the form? 
+
+## 20230223
+I'm going to start working on the `add book` button this morning. I will have to make it so that a form pops up.
+
+### progress for `add a "NEW BOOK button"`
+1. button added to html
+2. I will start with creating functionality to create a new form upon pressing the button
+  - [ ] look into form attribute onSubmit="function()"
+  - [ ] look into utilised action: "javascript:void(0);"
+  - I'm kind of doubtful about this approach of building the whole form with JS. I have the first inputs working but I'll instead look into just building a form in the html and hiding it until the add book button is pressed. 
+  - The above works like a charm. I'll continue working on the form
+  - [ ] edit input number for pages since it now has arrows
+  - [ ] `hideForm` and `unhideForm` functions can be integrated in their respective eventListeners
