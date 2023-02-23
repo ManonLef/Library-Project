@@ -10,7 +10,7 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(title, author, pages, read) {
   const libraryBook = new Book(title, author, pages, read);
-  return myLibrary.push(libraryBook);
+  myLibrary.push(libraryBook);
 }
 
 function displayBooks() {
@@ -20,7 +20,7 @@ function displayBooks() {
     bookContainer.removeChild(bookContainer.lastChild);
   }
   // loop through and display book info
-  myLibrary.forEach((Book) => {
+  myLibrary.forEach((Book, index) => {
     // create book card
     const bookCard = document.createElement("div");
     bookCard.className = "bookcard";
@@ -45,6 +45,11 @@ function displayBooks() {
     readDiv.appendChild(read);
     bookCard.appendChild(readDiv);
 
+    // delete button
+    const deleteButton = document.createElement("button");
+    deleteButton.setAttribute("data-index", index);
+    deleteButton.textContent = "delete";
+    bookCard.appendChild(deleteButton)
     // result bookcard
     document.getElementById("books-container").appendChild(bookCard);
   });
@@ -79,3 +84,7 @@ function submitBook() {
 }
 
 // temporary check to see if function works and fill the myLibrary array to test other functions
+
+addBookToLibrary("book 1", "author 1", 111, "read");
+addBookToLibrary("book 2", "author 2", 222, "not read");
+displayBooks();
