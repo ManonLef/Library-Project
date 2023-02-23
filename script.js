@@ -16,6 +16,12 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function displayBooks() {
+  // first erase previous list
+  const bookContainer = document.getElementById("container");
+  while (bookContainer.firstChild) {
+    bookContainer.removeChild(bookContainer.lastChild);
+  }
+  // loop through and display book info
   for (let i = 0; i < myLibrary.length; i++) {
     const bookInfo = document.createElement("p");
     const title = document.createTextNode(myLibrary[i].title);
@@ -26,7 +32,7 @@ function displayBooks() {
 
 function unhideForm() {
   const formhide = document.querySelector(".form-container");
-  formhide.removeAttribute("hidden")
+  formhide.removeAttribute("hidden");
 }
 
 // button to add book
@@ -34,17 +40,13 @@ const addBookButton = document.getElementById("add-book");
 addBookButton.addEventListener("click", unhideForm);
 
 // submit functionality
-const submitButton = document.querySelector("button")
-submitButton.addEventListener("click", doStuff)
+const submitButton = document.querySelector("button");
+submitButton.addEventListener("click", doStuff);
 
 function doStuff() {
-  console.log("test")
+  const title = document.getElementById("title");
+  addBookToLibrary(title.value, "", "", "");
+  displayBooks();
 }
 
 // temporary check to see if function works and fill the myLibrary array to test other functions
-addBookToLibrary("manon", "bla", 122, "not read");
-addBookToLibrary("how I", "met her", 122, "read");
-addBookToLibrary("yes sir", "mam", 132, "not read");
-addBookToLibrary("no mam", "sir", 100, "not read");
-
-displayBooks();
