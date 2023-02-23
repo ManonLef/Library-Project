@@ -24,15 +24,34 @@ function displayBooks() {
   }
 }
 
+function createInputForm() {
+  // container creation
+  const formContainer = document.createElement("div");
+  document.getElementById("container").appendChild(formContainer);
+  formContainer.className = "form-container";
+  // create form
+  const form = document.createElement("form");
+  form.id = "form"
+  form.setAttribute("action", "javascript:void(0);")
+  formContainer.appendChild(form);
+  // create label for title
+  const titleLabel = document.createElement("label")
+  titleLabel.setAttribute("for", "title");
+  form.appendChild(titleLabel);
+  // create input field for title
+  const titleInput = document.createElement("input");
+  titleInput.setAttribute("type", "text");
+  titleInput.setAttribute("name", "title")
+  titleInput.setAttribute("id", "title")
+  titleInput.setAttribute("placeholder", "title")
+  form.appendChild(titleInput);
+  // display form
+  formContainer.appendChild(form);
+}
+
 // button to add book
 const addBookButton = document.getElementById("add-book");
-addBookButton.addEventListener("click", openInputForm);
-
-function openInputForm() {
-  const formContainer = document.createElement("div");
-  document.getElementById("container").appendChild(formContainer)
-  formContainer.className = "form";
-}
+addBookButton.addEventListener("click", createInputForm);
 
 // temporary check to see if function works and fill the myLibrary array to test other functions
 addBookToLibrary("manon", "bla", 122, "not read");
