@@ -24,6 +24,14 @@ function displayBooks() {
   }
 }
 
+// button to add book
+const addBookButton = document.getElementById("add-book");
+addBookButton.addEventListener("click", openInputForm);
+
+function openInputForm() {
+  
+}
+
 // temporary check to see if function works and fill the myLibrary array to test other functions
 addBookToLibrary("manon", "bla", 122, "not read");
 addBookToLibrary("how I", "met her", 122, "read");
