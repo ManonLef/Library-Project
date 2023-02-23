@@ -1,7 +1,5 @@
 const myLibrary = [];
 
-// books will be added to this container visually
-
 function Book(title, author, pages, read) {
   // constructor with the book properties
   this.title = title;
@@ -31,8 +29,11 @@ function displayBooks() {
 }
 
 function unhideForm() {
-  const formhide = document.querySelector(".form-container");
-  formhide.removeAttribute("hidden");
+  document.querySelector(".form-container").removeAttribute("hidden");
+}
+
+function hideForm() {
+  document.querySelector(".form-container").setAttribute("hidden", "");
 }
 
 // button to add book
@@ -41,11 +42,15 @@ addBookButton.addEventListener("click", unhideForm);
 
 // submit functionality
 const submitButton = document.querySelector("button");
-submitButton.addEventListener("click", doStuff);
+submitButton.addEventListener("click", submitBook);
 
-function doStuff() {
+function submitBook() {
   const title = document.getElementById("title");
-  addBookToLibrary(title.value, "", "", "");
+  const author = document.getElementById("author");
+  const pages = document.getElementById("pages");
+  const read = document.getElementById("read");
+  addBookToLibrary(title.value, author.value, pages.value, read.value);
+  hideForm();
   displayBooks();
 }
 
