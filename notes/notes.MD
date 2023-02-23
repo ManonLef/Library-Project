@@ -50,7 +50,7 @@ Step 4: Add a “NEW BOOK” button that brings up a form allowing users to inpu
 3. pass the above to the addBookToLibrary fuction upon submit
 4. delete the form? 
 
-## 20230223
+## 202302231
 I'm going to start working on the `add book` button this morning. I will have to make it so that a form pops up.
 
 ### progress for `add a "NEW BOOK button"`
@@ -62,3 +62,21 @@ I'm going to start working on the `add book` button this morning. I will have to
   - The above works like a charm. I'll continue working on the form
   - [ ] edit input number for pages since it now has arrows
   - [ ] `hideForm` and `unhideForm` functions can be integrated in their respective eventListeners
+3. and 4 
+  - went smooth enough.
+
+## 20230232 step 5
+`Add a button on each book’s display to remove the book from the library.`
+You will need to associate your DOM elements with the actual book objects in some way. One easy solution is giving them a data-attribute that corresponds to the index of the library array.
+
+### Progress for `Add a button on each book’s display to remove the book from the library`
+I added a button to the displayBooks function which is getting awfully lengthy
+- [ ] refactor displayBooks to remove the card creation and make it more readable
+Some pseudocode for pressing delete:
+  - I will create an eventlistener for the delete buttons
+  - the data-index will be the index number of the book to be deleted
+  - remove said index from the array
+  - display remaining books
+Some things I ran into:
+- the delete buttons are dynamically created so the event-listener didn't work on newly created books since I declared the const before it could even find it with the querySelectorAll. To solve this I added an eventlistener for clicks in the entire document with the `closest()` method. Once the Doc tree then finds the `.delete-button` up the DOM tree upon click, it will invoke the function.
+- Works like a charm \o/
