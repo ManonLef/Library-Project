@@ -33,6 +33,14 @@ function unhideForm() {
 const addBookButton = document.getElementById("add-book");
 addBookButton.addEventListener("click", unhideForm);
 
+// submit functionality
+const submitButton = document.querySelector("button")
+submitButton.addEventListener("click", doStuff)
+
+function doStuff() {
+  console.log("test")
+}
+
 // temporary check to see if function works and fill the myLibrary array to test other functions
 addBookToLibrary("manon", "bla", 122, "not read");
 addBookToLibrary("how I", "met her", 122, "read");
