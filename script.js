@@ -24,9 +24,14 @@ function displayBooks() {
   }
 }
 
+function unhideForm() {
+  const formhide = document.querySelector(".form-container");
+  formhide.removeAttribute("hidden")
+}
+
 // button to add book
 const addBookButton = document.getElementById("add-book");
-addBookButton.addEventListener("click", createInputForm);
+addBookButton.addEventListener("click", unhideForm);
 
 // temporary check to see if function works and fill the myLibrary array to test other functions
 addBookToLibrary("manon", "bla", 122, "not read");

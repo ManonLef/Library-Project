@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
-  <title>Manon's Library Project</title>
-</head>
-<body>
-  <div id="container">
-  </div>
-  <button id="add-book">+</button>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Manon's Library Project</title>
+  </head>
+  <body>
+    <div hidden class="form-container">
+      <form action="javascript:void(0);">
+        <div class="title-container">
+          <label for="title">Title</label>
+          <input type="text" name="title" id="title" placeholder="title">
+        </div>
+      </form>
+    </div>
+    <div id="container"></div>
+    <button id="add-book">+</button>
+  </body>
 </html>
