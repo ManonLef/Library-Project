@@ -83,3 +83,26 @@ Some things I ran into:
 
 - Note for tomorrow: eventListeners are added and remain active. So I can rewrite the deleteButton and probably add it to the `displayBooks` function.
 - The `displayBooks` function could probably have a more descriptive name as well.
+
+## 2023024
+- [ ] add eventlistener to code where delete button is dynamically created
+- the above because right now I feel like moving on so I can refactor the whole code later.
+
+### step 5 `Add a button ro change the read status`
+Add a button on each book’s display to change its read status.
+To facilitate this you will want to create the function that toggles a book’s read status on your Book prototype instance. 
+
+### Pseudocode for `read toggle`
+- change the read section of the form to a selection between read vs not read
+- add a button or slide to the form to indicate if it's read. like a toggle switch.
+- upon creation of the book card, the Book prototype will have a read value of true or false for example
+- once the toggle is used it has to be the opposite of true or false. 
+
+### Progress for `read toggle`
+- I ran into an issue with `event.preventDefault` changing the default behaviour of the checkbox upon submit. Normally a checkbox only submits a value when checked but with the `preventDefault` option the checkbox toggles to checked before submitting
+- I opted for using a dropdown for now with yes/no
+- added the button to the card
+- now working on toggling said button and the read status
+- added the same type of eventListener (with closest()) to the toggle read button. It works for now so that's okay
+
+All functionality is there now. The code could do with some refactoring but I will move on to the styling first since the code will need some state classes added as well.
