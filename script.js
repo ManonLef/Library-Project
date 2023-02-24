@@ -47,6 +47,7 @@ function displayBooks() {
 
     // read status
     const readButton = document.createElement("button");
+    readButton.setAttribute("data-index", index);
     readButton.className = "read-button";
     if (Book.read === "true") {
       readButton.textContent = "read";
@@ -54,7 +55,6 @@ function displayBooks() {
       readButton.textContent = "not read";
     }
     bookCard.appendChild(readButton);
-
 
     // delete button
     const deleteButton = document.createElement("button");
@@ -96,6 +96,16 @@ function submitBook(event) {
   hideForm();
 }
 
+function toggleRead(bookProto) {
+  const readState = myLibrary[bookProto.getAttribute("data-index")].read;
+  if (readState === "false") {
+    myLibrary[bookProto.getAttribute("data-index")].read = "true";
+  } else {
+    myLibrary[bookProto.getAttribute("data-index")].read = "false";
+  }
+  displayBooks();
+}
+
 function removeBook(bookProto) {
   myLibrary.splice(bookProto.getAttribute("data-index"), 1);
   displayBooks();
@@ -108,8 +118,21 @@ document.addEventListener("click", (e) => {
     removeBook(target);
   }
 });
+
+// same for read toggle
+document.addEventListener("click", (e) => {
+  const target = e.target.closest(".read-button");
+  if (target) {
+    toggleRead(target);
+  }
+});
+
 // temporary check to see if function works and fill the myLibrary array to test other functions
 
+addBookToLibrary("book 1", "author 1", 111, "true");
+addBookToLibrary("book 2", "author 2", 222, "false");
+addBookToLibrary("book 1", "author 1", 111, "true");
+addBookToLibrary("book 2", "author 2", 222, "false");
 addBookToLibrary("book 1", "author 1", 111, "true");
 addBookToLibrary("book 2", "author 2", 222, "false");
 displayBooks();
