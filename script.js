@@ -84,9 +84,8 @@ function submitBook() {
   hideForm();
 }
 
-function removeBook(bookIndex) {
-  console.log(bookIndex.getAttribute("data-index"));
-  myLibrary.splice(bookIndex.getAttribute("data-index"), 1);
+function removeBook(bookProto) {
+  myLibrary.splice(bookProto.getAttribute("data-index"), 1);
   displayBooks();
 }
 
