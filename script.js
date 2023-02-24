@@ -45,6 +45,17 @@ function displayBooks() {
     readDiv.appendChild(read);
     bookCard.appendChild(readDiv);
 
+    // read status
+    const readButton = document.createElement("button");
+    readButton.className = "read-button";
+    if (Book.read === "true") {
+      readButton.textContent = "read";
+    } else {
+      readButton.textContent = "not read";
+    }
+    bookCard.appendChild(readButton);
+
+
     // delete button
     const deleteButton = document.createElement("button");
     deleteButton.setAttribute("data-index", index);
@@ -72,7 +83,8 @@ addBookButton.addEventListener("click", unhideForm);
 const submitButton = document.querySelector("button");
 submitButton.addEventListener("click", submitBook);
 
-function submitBook() {
+function submitBook(event) {
+  event.preventDefault();
   const title = document.getElementById("title");
   const author = document.getElementById("author");
   const pages = document.getElementById("pages");
@@ -98,6 +110,6 @@ document.addEventListener("click", (e) => {
 });
 // temporary check to see if function works and fill the myLibrary array to test other functions
 
-addBookToLibrary("book 1", "author 1", 111, "read");
-addBookToLibrary("book 2", "author 2", 222, "not read");
+addBookToLibrary("book 1", "author 1", 111, "true");
+addBookToLibrary("book 2", "author 2", 222, "false");
 displayBooks();
