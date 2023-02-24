@@ -80,3 +80,6 @@ Some pseudocode for pressing delete:
 Some things I ran into:
 - the delete buttons are dynamically created so the event-listener didn't work on newly created books since I declared the const before it could even find it with the querySelectorAll. To solve this I added an eventlistener for clicks in the entire document with the `closest()` method. Once the Doc tree then finds the `.delete-button` up the DOM tree upon click, it will invoke the function.
 - Works like a charm \o/
+
+- Note for tomorrow: eventListeners are added and remain active. So I can rewrite the deleteButton and probably add it to the `displayBooks` function.
+- The `displayBooks` function could probably have a more descriptive name as well.
