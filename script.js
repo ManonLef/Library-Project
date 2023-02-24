@@ -80,7 +80,7 @@ const addBookButton = document.getElementById("add-book");
 addBookButton.addEventListener("click", unhideForm);
 
 // submit new book button functionality
-const submitButton = document.querySelector("button");
+const submitButton = document.getElementById("submit-book");
 submitButton.addEventListener("click", submitBook);
 
 function submitBook(event) {
