@@ -40,11 +40,6 @@ function displayBooks() {
     pagesDiv.appendChild(pages);
     bookCard.appendChild(pagesDiv);
 
-    const readDiv = document.createElement("div");
-    const read = document.createTextNode(Book.read);
-    readDiv.appendChild(read);
-    bookCard.appendChild(readDiv);
-
     // read status
     const readButton = document.createElement("button");
     readButton.setAttribute("data-index", index);
