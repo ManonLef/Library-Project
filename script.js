@@ -70,6 +70,7 @@ function unhideForm() {
   document.querySelector("footer").className = "blur";
   document.querySelector("header").className = "blur";
   document.querySelector(".form-container").removeAttribute("hidden");
+  changeBookButton();
 }
 
 function hideForm() {
@@ -131,6 +132,13 @@ document.addEventListener("click", (e) => {
   }
 });
 
+function changeBookButton() {
+  if (document.querySelector(".form-container").hasAttribute("hidden")) {
+    document.getElementById("add-book").textContent = "Add Book";
+  } else {
+    document.getElementById("add-book").textContent = "Cancel";
+  }
+}
 // temporary check to see if function works and fill the myLibrary array to test other functions
 
 addBookToLibrary("The Lord of The Rings", "author 1", 111, "true");
