@@ -24,7 +24,7 @@ body {
 button {
   background-color: var(--color3);
   color: white;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 5px;
   padding: 10px;
   font-size: 16px;
@@ -32,13 +32,15 @@ button {
 }
 
 button:hover {
+  border: 2px solid var(--color5);
   background-color: var(--color4);
-  outline: 2px solid var(--color4);
+  color: #141850;
+  font-weight: 500;
 }
 
 #add-book:hover {
   background-color: var(--color4);
-  outline: 2px solid white;
+  border: 2px solid white;
   color: var(--color1);
 }
 
@@ -83,12 +85,19 @@ header {
   grid-template-rows: 1.5fr 1fr 1fr 1fr;
   gap: 10px;
   padding: 20px;
+  position: relative;
 }
 
 .book-title,
 .book-author,
 .book-pages {
   grid-column: 1/-1;
+  display: grid;
+  align-items: center;
+  padding: 0px 15px;
+}
+
+.book-status {
   display: grid;
   align-items: center;
   padding: 0px 15px;
@@ -101,14 +110,45 @@ header {
   text-transform: uppercase;
   box-shadow: 0px 3px 2px -2px var(--color4);
   text-align: center;
-  padding: 0px 0px 10px 0px;
+  padding: 0px 10px 10px 10px;
 }
 
 .bookcard > button {
   align-self: center;
-  height: 40px;
 }
 
+.delete-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border-radius: 15px;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-button:hover {
+  border: 2px solid transparent;
+}
+
+.not-read-button {
+  background-color: var(--color4);
+  color: var(--color3);
+}
+
+.read-button:hover {
+  background-color: var(--color3);
+  border: 2px solid var(--color2);
+  color: white;
+}
+
+.not-read-button:hover {
+  color: #303179;
+  background-color: var(--color4);
+}
 /* form */
 .form-container {
   background-color: var(--color3);
@@ -142,7 +182,6 @@ form {
 #submit-book:hover {
   background-color: var(--color1);
   color: white;
-  outline: 2px solid white;
 }
 
 input,
@@ -172,4 +211,15 @@ footer {
   padding: 20px;
   display: flex;
   justify-content: space-around;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

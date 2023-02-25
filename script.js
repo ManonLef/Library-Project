@@ -20,37 +20,44 @@ function displayBooks() {
     bookContainer.removeChild(bookContainer.lastChild);
   }
   // loop through and display book info
-  myLibrary.forEach((Book, index) => {
+  myLibrary.forEach((book, index) => {
     // create book card
     const bookCard = document.createElement("div");
     bookCard.className = "bookcard";
     // fill bookcard
     const titleDiv = document.createElement("div");
     titleDiv.className = "book-title";
-    const title = document.createTextNode(Book.title);
+    const title = document.createTextNode(book.title);
     titleDiv.appendChild(title);
     bookCard.appendChild(titleDiv);
 
     const authorDiv = document.createElement("div");
     authorDiv.className = "book-author";
-    const author = document.createTextNode("Author: " + Book.author);
+    const author = document.createTextNode(`Author: ${book.author}`);
     authorDiv.appendChild(author);
     bookCard.appendChild(authorDiv);
 
     const pagesDiv = document.createElement("div");
     pagesDiv.className = "book-pages";
-    const pages = document.createTextNode("Number of Pages: " + Book.pages);
+    const pages = document.createTextNode(`Number of Pages: ${book.pages}`);
     pagesDiv.appendChild(pages);
     bookCard.appendChild(pagesDiv);
 
+    // read text 
+    
+    const readStatus = document.createElement("div");
+    readStatus.className = "book-status"
+    readStatus.textContent = "Read Status:";
+    bookCard.appendChild(readStatus);
     // read status
     const readButton = document.createElement("button");
     readButton.setAttribute("data-index", index);
-    readButton.className = "read-button";
-    if (Book.read === "true") {
+    if (book.read === "true") {
       readButton.textContent = "read";
+      readButton.className = "read-button";
     } else {
       readButton.textContent = "not read";
+      readButton.className = "read-button not-read-button"
     }
     bookCard.appendChild(readButton);
 
@@ -58,7 +65,7 @@ function displayBooks() {
     const deleteButton = document.createElement("button");
     deleteButton.setAttribute("data-index", index);
     deleteButton.className = "delete-button";
-    deleteButton.textContent = "delete";
+    deleteButton.textContent = "✖";
     bookCard.appendChild(deleteButton);
     // result bookcard
     document.getElementById("books-container").appendChild(bookCard);
