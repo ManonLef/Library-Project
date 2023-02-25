@@ -26,17 +26,20 @@ function displayBooks() {
     bookCard.className = "bookcard";
     // fill bookcard
     const titleDiv = document.createElement("div");
+    titleDiv.className = "title";
     const title = document.createTextNode(Book.title);
     titleDiv.appendChild(title);
     bookCard.appendChild(titleDiv);
 
     const authorDiv = document.createElement("div");
-    const author = document.createTextNode(Book.author);
+    authorDiv.className = "author";
+    const author = document.createTextNode("Author: " + Book.author);
     authorDiv.appendChild(author);
     bookCard.appendChild(authorDiv);
 
     const pagesDiv = document.createElement("div");
-    const pages = document.createTextNode(Book.pages);
+    pagesDiv.className = "pages";
+    const pages = document.createTextNode("Number of Pages: " + Book.pages);
     pagesDiv.appendChild(pages);
     bookCard.appendChild(pagesDiv);
 
@@ -126,10 +129,17 @@ document.addEventListener("click", (e) => {
 
 // temporary check to see if function works and fill the myLibrary array to test other functions
 
-addBookToLibrary("book 1", "author 1", 111, "true");
+addBookToLibrary("The Lord of The Rings", "author 1", 111, "true");
+addBookToLibrary(
+  "How To Win Friends And Influence People The Lord of The Rings",
+  "author 2",
+  222,
+  "false"
+);
+addBookToLibrary("book 1", "Very Long Author Papasididopoulos", 111, "true");
 addBookToLibrary("book 2", "author 2", 222, "false");
 addBookToLibrary("book 1", "author 1", 111, "true");
 addBookToLibrary("book 2", "author 2", 222, "false");
 addBookToLibrary("book 1", "author 1", 111, "true");
-addBookToLibrary("book 2", "author 2", 222, "false");
+addBookToLibrary("book 2", "", "", "false");
 displayBooks();
