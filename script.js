@@ -68,10 +68,12 @@ function displayBooks() {
 }
 
 function unhideForm() {
+  document.getElementById("books-container").className = "blur";
   document.querySelector(".form-container").removeAttribute("hidden");
 }
 
 function hideForm() {
+  document.getElementById("books-container").classList.remove("blur");
   document.querySelector(".form-container").setAttribute("hidden", "");
 }
 
