@@ -19,33 +19,31 @@ body {
 .header {
   background-color: white;
   color: #44424a;
-  padding: 30px;
+  padding: 10px;
   display: grid;
   grid-template-columns: 5fr 1fr;
-}
-
-footer {
-  background-color: lightgreen;
+  align-items: center;
 }
 
 #books-container {
   background-color: rgb(229, 229, 229);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 0.25fr));
+  grid-template-rows: repeat(auto-fit, minmax(300px, 0.5fr));
   justify-content: center;
-  grid-template-rows: repeat(2, 0.5fr);
   gap: 15px;
   padding: 20px;
 }
 
 .bookcard {
   background-color: white;
-  padding: 30px;
+  padding: 15px;
   border-radius: 10px;
   box-shadow: 0px 2px 2px rgb(171, 171, 171);
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 2fr 1fr 1fr 1fr ;
+  justify-content: space-evenly;
   gap: 10px;
 }
 
@@ -102,7 +100,7 @@ form {
 footer {
   background-color: white;
   color: #44424a;
-  padding: 30px;
+  padding: 10px;
   display: flex;
   justify-content: space-around;
 }
