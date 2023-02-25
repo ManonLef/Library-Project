@@ -26,6 +26,7 @@ footer {
 
 #books-container {
   display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(200px, 0.5fr));
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 15px;
   padding: 20px;
