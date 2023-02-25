@@ -73,6 +73,7 @@ function unhideForm() {
     document.querySelector(".form-container").removeAttribute("hidden");
   } else {
     hideForm();
+    clearForm();
   }
   changeBookButton();
 }
@@ -143,6 +144,13 @@ function changeBookButton() {
   } else {
     document.getElementById("add-book").textContent = "Cancel";
   }
+}
+
+function clearForm() {
+  document.getElementById("title").value = "";
+  document.getElementById("author").value = "";
+  document.getElementById("pages").value = "";
+  document.getElementById("read").value = "";
 }
 // temporary check to see if function works and fill the myLibrary array to test other functions
 
