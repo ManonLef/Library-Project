@@ -26,19 +26,19 @@ function displayBooks() {
     bookCard.className = "bookcard";
     // fill bookcard
     const titleDiv = document.createElement("div");
-    titleDiv.className = "title";
+    titleDiv.className = "book-title";
     const title = document.createTextNode(Book.title);
     titleDiv.appendChild(title);
     bookCard.appendChild(titleDiv);
 
     const authorDiv = document.createElement("div");
-    authorDiv.className = "author";
+    authorDiv.className = "book-author";
     const author = document.createTextNode("Author: " + Book.author);
     authorDiv.appendChild(author);
     bookCard.appendChild(authorDiv);
 
     const pagesDiv = document.createElement("div");
-    pagesDiv.className = "pages";
+    pagesDiv.className = "book-pages";
     const pages = document.createTextNode("Number of Pages: " + Book.pages);
     pagesDiv.appendChild(pages);
     bookCard.appendChild(pagesDiv);
@@ -131,7 +131,7 @@ document.addEventListener("click", (e) => {
 
 addBookToLibrary("The Lord of The Rings", "author 1", 111, "true");
 addBookToLibrary(
-  "How To Win Friends And Influence People The Lord of The Rings",
+  "How To Win Friends And Influence People",
   "author 2",
   222,
   "false"
