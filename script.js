@@ -66,10 +66,14 @@ function displayBooks() {
 }
 
 function unhideForm() {
-  document.getElementById("books-container").className = "blur";
-  document.querySelector("footer").className = "blur";
-  document.querySelector("header").className = "blur";
-  document.querySelector(".form-container").removeAttribute("hidden");
+  if (document.querySelector(".form-container").hasAttribute("hidden")) {
+    document.getElementById("books-container").className = "blur";
+    document.querySelector("footer").className = "blur";
+    document.querySelector("header").className = "blur";
+    document.querySelector(".form-container").removeAttribute("hidden");
+  } else {
+    hideForm();
+  }
   changeBookButton();
 }
 
@@ -99,6 +103,7 @@ function submitBook(event) {
   // reset form
   document.querySelector("form").reset();
   hideForm();
+  changeBookButton();
 }
 
 function toggleRead(bookProto) {
