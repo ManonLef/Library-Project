@@ -11,13 +11,17 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-rows: 70px auto 70px;
+  grid-template-rows: auto 1fr auto;
   height: 100vh;
   position: relative;
 }
 
 .header {
-  background-color: lightcoral;
+  background-color: white;
+  color: #44424a;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
 }
 
 footer {
@@ -25,6 +29,7 @@ footer {
 }
 
 #books-container {
+  background-color: rgb(229, 229, 229);
   display: grid;
   grid-template-rows: repeat(auto-fit, minmax(200px, 0.5fr));
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -68,3 +73,10 @@ form {
   opacity: 40%;
 }
 
+footer {
+  background-color: white;
+  color: #44424a;
+  padding: 30px;
+  display: flex;
+  justify-content: space-around;
+}
