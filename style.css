@@ -1,10 +1,12 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 body {
   width: 100%;
+
 }
 
 .grid-container {
@@ -27,19 +29,19 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  font-weight: 900;
+  font-size: 50px;
 }
 
 header {
   text-align: center;
-  font-size: 20px;
   text-transform: uppercase;
 }
 
 .header > button {
   position: absolute;
-  left: 10px;
+  left: 20px;
 }
-
 
 #books-container {
   background-color: rgb(229, 229, 229);
@@ -53,24 +55,17 @@ header {
 
 .bookcard {
   background-color: white;
-  padding: 20px;
   border-radius: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1.5fr 1fr 1fr 1fr;
   gap: 10px;
+  padding: 20px;
 }
 
-/*title */
-.book-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  font-weight: 800;
-  text-transform: uppercase;
-  box-shadow: 0px 2px 2px -2px rgb(171, 171, 171);
-  text-align: center;
+.bookcard:hover {
+  outline: 3px solid white;
+  outline-offset: 2px;
 }
 
 .book-title,
@@ -79,7 +74,17 @@ header {
   grid-column: 1/-1;
   display: grid;
   align-items: center;
-  padding: 0px 5px 0px 5px;
+  padding: 0px 15px;
+}
+
+/*title */
+.book-title {
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  box-shadow: 0px 2px 2px -2px rgb(171, 171, 171);
+  text-align: center;
+  padding: 0px;
 }
 
 .bookcard > button {
@@ -123,9 +128,9 @@ select {
 }
 
 input:focus,
-select:focus {
-  border: transparent;
-  outline: 2px;
+select:focus,
+button:hover {
+  outline: 2px solid rgb(199, 146, 146);
 }
 
 .blur {
