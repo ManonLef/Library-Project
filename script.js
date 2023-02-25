@@ -67,11 +67,15 @@ function displayBooks() {
 
 function unhideForm() {
   document.getElementById("books-container").className = "blur";
+  document.querySelector("footer").className = "blur";
+  document.querySelector("header").className = "blur";
   document.querySelector(".form-container").removeAttribute("hidden");
 }
 
 function hideForm() {
   document.getElementById("books-container").classList.remove("blur");
+  document.querySelector("footer").classList.remove("blur");
+  document.querySelector("header").classList.remove("blur");
   document.querySelector(".form-container").setAttribute("hidden", "");
 }
 

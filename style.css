@@ -61,10 +61,10 @@ header {
   padding: 20px;
 }
 
-/* .bookcard:hover {   Nice when refactoring to open book to edit
+.bookcard:hover {  
   outline: 3px solid white;
   outline-offset: 2px;
-} */
+}
 
 .book-title,
 .book-author,
@@ -116,6 +116,7 @@ form {
 
 #submit-book {
   background-color: white;
+  color: black;
 }
 
 input,
