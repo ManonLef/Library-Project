@@ -17,6 +17,7 @@ body {
 button {
   border: none;
   border-radius: 5px;
+  padding: 10px;
 }
 
 .header {
@@ -35,7 +36,6 @@ header {
 }
 
 .header > button {
-  padding: 10px;
   position: absolute;
   left: 10px;
 }
@@ -90,8 +90,8 @@ header {
 /* form */
 .form-container {
   background-color: pink;
-  border-radius: 15px;
-  padding: 30px;
+  border-radius: 5px;
+  padding: 50px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -101,13 +101,31 @@ header {
 form > div {
   display: flex;
   justify-content: space-between;
-  gap: 15px;
+  gap: 20px;
+  align-items: center;
 }
 
 form {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+input,
+select {
+  height: 2rem;
+  border: transparent;
+  border-radius: 5px;
+  color: rgb(36, 36, 36);
+  font-size: 14px;
+  padding: 0 1rem;
+  box-shadow: inset 1px 1px 2px #ccc;
+}
+
+input:focus,
+select:focus {
+  border: transparent;
+  outline: 2px;
 }
 
 .blur {
