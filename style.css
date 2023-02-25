@@ -2,9 +2,15 @@
   margin: 0;
   padding: 0;
   font-family: "Montserrat Alternates", sans-serif;
+  --color1: #141850;
+  --color2: #303179;
+  --color3: #ed7966;
+  --color4: #f5cac2;
+  --color5: #fae5df;
 }
 
 body {
+  color: var(--color1);
   width: 100%;
 }
 
@@ -16,20 +22,35 @@ body {
 }
 
 button {
+  background-color: var(--color3);
+  color: white;
   border: none;
   border-radius: 5px;
   padding: 10px;
   font-size: 16px;
+  font-weight: 400;
+}
+
+button:hover {
+  background-color: var(--color4);
+  outline: 2px solid var(--color4);
+}
+
+#add-book:hover {
+  background-color: var(--color4);
+  outline: 2px solid white;
+  color: var(--color1);
 }
 
 .header {
-  background-color: white;
+  background-color: var(--color2);
+  color: var(--color5);
   padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  font-weight: 900;
-  font-size: 50px;
+  font-weight: 700;
+  font-size: 40px;
 }
 
 header {
@@ -43,7 +64,7 @@ header {
 }
 
 #books-container {
-  background-color: rgb(229, 229, 229);
+  background-color: var(--color5);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
   grid-template-rows: repeat(auto-fit, minmax(200px, 0.5fr));
@@ -55,16 +76,13 @@ header {
 .bookcard {
   background-color: white;
   border-radius: 5px;
+  border-left: 8px solid var(--color2);
+  border-bottom: 5px solid var(--color4);
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1.5fr 1fr 1fr 1fr;
   gap: 10px;
   padding: 20px;
-}
-
-.bookcard:hover {  
-  outline: 3px solid white;
-  outline-offset: 2px;
 }
 
 .book-title,
@@ -81,7 +99,7 @@ header {
   font-size: 18px;
   font-weight: 800;
   text-transform: uppercase;
-  box-shadow: 0px 2px 2px -2px rgb(171, 171, 171);
+  box-shadow: 0px 3px 2px -2px var(--color4);
   text-align: center;
   padding: 0px 0px 10px 0px;
 }
@@ -93,7 +111,8 @@ header {
 
 /* form */
 .form-container {
-  background-color: rgb(229, 229, 229);
+  background-color: var(--color3);
+  color: white;
   border-radius: 5px;
   padding: 50px;
   position: absolute;
@@ -120,21 +139,25 @@ form {
   color: black;
 }
 
+#submit-book:hover {
+  background-color: var(--color1);
+  color: white;
+  outline: 2px solid white;
+}
+
 input,
 select {
   height: 2rem;
   border: transparent;
+  outline: none;
   border-radius: 5px;
-  color: rgb(36, 36, 36);
   font-size: 14px;
   padding: 0 1rem;
   box-shadow: inset 1px 1px 2px #ccc;
 }
 
-input:focus,
-select:focus,
-button:hover {
-  outline: 2px solid rgb(199, 146, 146);
+input:focus {
+  outline: 2px solid var(--color2);
 }
 
 .blur {
@@ -144,8 +167,8 @@ button:hover {
 
 /* footer */
 footer {
-  background-color: white;
-  color: #44424a;
+  background-color: var(--color2);
+  color: var(--color5);
   padding: 20px;
   display: flex;
   justify-content: space-around;
