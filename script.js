@@ -1,5 +1,54 @@
+// global accessibles
 const myLibrary = [];
 
+function addBookToLibrary(title, author, pages, read) {
+  const libraryBook = new Book(title, author, pages, read);
+  myLibrary.push(libraryBook);
+}
+
+function submitBook(event) {
+  event.preventDefault();
+  const title = document.getElementById("title");
+  const author = document.getElementById("author");
+  const pages = document.getElementById("pages");
+  const read = document.getElementById("read");
+  addBookToLibrary(title.value, author.value, pages.value, read.value);
+  displayBooks();
+  // reset form
+  document.querySelector("form").reset();
+  hideForm();
+  changeBookButton();
+}
+
+function changeBookButton() {
+  if (document.querySelector(".form-container").hasAttribute("hidden")) {
+    document.getElementById("add-book").textContent = "Add Book";
+  } else {
+    document.getElementById("add-book").textContent = "Cancel";
+  }
+}
+
+function clearForm() {
+  document.getElementById("title").value = "";
+  document.getElementById("author").value = "";
+  document.getElementById("pages").value = "";
+  document.getElementById("read").value = "";
+}
+// book card functionality
+function toggleRead(bookProto) {
+  const readState = myLibrary[bookProto.getAttribute("data-index")].read;
+  if (readState === "false") {
+    myLibrary[bookProto.getAttribute("data-index")].read = "true";
+  } else {
+    myLibrary[bookProto.getAttribute("data-index")].read = "false";
+  }
+  displayBooks();
+}
+
+function removeBook(bookProto) {
+  myLibrary.splice(bookProto.getAttribute("data-index"), 1);
+  displayBooks();
+}
 // book constructor
 function Book(title, author, pages, read) {
   this.title = title;
@@ -8,11 +57,7 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-function addBookToLibrary(title, author, pages, read) {
-  const libraryBook = new Book(title, author, pages, read);
-  myLibrary.push(libraryBook);
-}
-
+// book card fill functions
 function addElementToCard(element, bookCard, book) {
   const elementDiv = document.createElement("div");
   elementDiv.className = `book-${element}`;
@@ -46,39 +91,45 @@ function addReadButtonToCard(index, book, bookCard) {
   bookCard.appendChild(statusButton);
 }
 
+function addDeleteButtonToCard(index, bookCard) {
+  const deleteButton = document.createElement("button");
+  deleteButton.setAttribute("data-index", index);
+  deleteButton.className = "delete-button";
+  deleteButton.textContent = "✖";
+  // eventlistener uses e.target to identify exactly which button is clicked 
+  // which is important since that button will have the data-index needed to remove the correct button
+  deleteButton.addEventListener("click", (e) => {
+    const bookDelButton = e.target;
+    removeBook(bookDelButton);
+  });
+  bookCard.appendChild(deleteButton);
+}
+
 function displayBooks() {
   // first erase previous list
   const bookContainer = document.getElementById("books-container");
   while (bookContainer.firstChild) {
     bookContainer.removeChild(bookContainer.lastChild);
   }
-
-  // loop through and display book info
+  // Generate book card for each book in library
   myLibrary.forEach((book, index) => {
-    // create book card
     const bookCard = document.createElement("div");
     bookCard.className = "bookcard";
-    // fill bookcard
+    // Append all elements to the book card
     addElementToCard("title", bookCard, book);
     addElementToCard("author", bookCard, book);
     addElementToCard("pages", bookCard, book);
     addReadStatusToCard(bookCard);
     addReadButtonToCard(index, book, bookCard);
-
-    // delete button
-    const deleteButton = document.createElement("button");
-    deleteButton.setAttribute("data-index", index);
-    deleteButton.className = "delete-button";
-    deleteButton.textContent = "✖";
-    bookCard.appendChild(deleteButton);
-    // result bookcard
-    document.getElementById("books-container").appendChild(bookCard);
+    addDeleteButtonToCard(index, bookCard);
+    // append the book card to the book caontainer
+    document.querySelector("#books-container").appendChild(bookCard);
   });
 }
-
+// form popup functions
 function unhideForm() {
   if (document.querySelector(".form-container").hasAttribute("hidden")) {
-    document.getElementById("books-container").className = "blur";
+    document.querySelector("#books-container").className = "blur";
     document.querySelector("footer").className = "blur";
     document.querySelector("header").className = "blur";
     document.querySelector(".form-container").removeAttribute("hidden");
@@ -104,42 +155,13 @@ addBookButton.addEventListener("click", unhideForm);
 const submitButton = document.getElementById("submit-book");
 submitButton.addEventListener("click", submitBook);
 
-function submitBook(event) {
-  event.preventDefault();
-  const title = document.getElementById("title");
-  const author = document.getElementById("author");
-  const pages = document.getElementById("pages");
-  const read = document.getElementById("read");
-  addBookToLibrary(title.value, author.value, pages.value, read.value);
-  displayBooks();
-  // reset form
-  document.querySelector("form").reset();
-  hideForm();
-  changeBookButton();
-}
-
-function toggleRead(bookProto) {
-  const readState = myLibrary[bookProto.getAttribute("data-index")].read;
-  if (readState === "false") {
-    myLibrary[bookProto.getAttribute("data-index")].read = "true";
-  } else {
-    myLibrary[bookProto.getAttribute("data-index")].read = "false";
-  }
-  displayBooks();
-}
-
-function removeBook(bookProto) {
-  myLibrary.splice(bookProto.getAttribute("data-index"), 1);
-  displayBooks();
-}
-
 // test for delete button
-document.addEventListener("click", (e) => {
-  const target = e.target.closest(".delete-button");
-  if (target) {
-    removeBook(target);
-  }
-});
+// document.addEventListener("click", (e) => {
+//   const target = e.target.closest(".delete-button");
+//   if (target) {
+//     removeBook(target);
+//   }
+// });
 
 // same for read toggle
 document.addEventListener("click", (e) => {
@@ -149,33 +171,11 @@ document.addEventListener("click", (e) => {
   }
 });
 
-function changeBookButton() {
-  if (document.querySelector(".form-container").hasAttribute("hidden")) {
-    document.getElementById("add-book").textContent = "Add Book";
-  } else {
-    document.getElementById("add-book").textContent = "Cancel";
-  }
-}
-
-function clearForm() {
-  document.getElementById("title").value = "";
-  document.getElementById("author").value = "";
-  document.getElementById("pages").value = "";
-  document.getElementById("read").value = "";
-}
-// temporary check to see if function works and fill the myLibrary array to test other functions
-
+// default books loaded Í
 addBookToLibrary("The Lord of The Rings", "author 1", 111, "true");
-addBookToLibrary(
-  "How To Win Friends And Influence People",
-  "author 2",
-  222,
-  "false"
-);
 addBookToLibrary("book 1", "Very Long Author Papasididopoulos", 111, "true");
 addBookToLibrary("book 2", "author 2", 222, "false");
 addBookToLibrary("book 1", "author 1", 111, "true");
 addBookToLibrary("book 2", "author 2", 222, "false");
 addBookToLibrary("book 1", "author 1", 111, "true");
-addBookToLibrary("book 2", "", "", "false");
 displayBooks();
