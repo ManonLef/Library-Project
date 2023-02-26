@@ -1,7 +1,7 @@
 const myLibrary = [];
 
+// book constructor
 function Book(title, author, pages, read) {
-  // constructor with the book properties
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -13,53 +13,57 @@ function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(libraryBook);
 }
 
+function addElementToCard(element, bookCard, book) {
+  const elementDiv = document.createElement("div");
+  elementDiv.className = `book-${element}`;
+  let bookElement;
+  if (element === "title") {
+    bookElement = document.createTextNode(book[element]);
+  } else {
+    bookElement = document.createTextNode(`${element}: ${book[element]}`);
+  }
+  elementDiv.appendChild(bookElement);
+  bookCard.appendChild(elementDiv);
+}
+
+function addReadStatusToCard(bookCard) {
+  const statusDiv = document.createElement("div");
+  statusDiv.className = "book-status";
+  statusDiv.textContent = "Read Status:";
+  bookCard.appendChild(statusDiv);
+}
+
+function addReadButtonToCard(index, book, bookCard) {
+  const statusButton = document.createElement("button");
+  statusButton.setAttribute("data-index", index);
+  if (book.read === "true") {
+    statusButton.textContent = "read";
+    statusButton.className = "read-button";
+  } else {
+    statusButton.textContent = "not read";
+    statusButton.className = "read-button not-read-button";
+  }
+  bookCard.appendChild(statusButton);
+}
+
 function displayBooks() {
   // first erase previous list
   const bookContainer = document.getElementById("books-container");
   while (bookContainer.firstChild) {
     bookContainer.removeChild(bookContainer.lastChild);
   }
+
   // loop through and display book info
   myLibrary.forEach((book, index) => {
     // create book card
     const bookCard = document.createElement("div");
     bookCard.className = "bookcard";
     // fill bookcard
-    const titleDiv = document.createElement("div");
-    titleDiv.className = "book-title";
-    const title = document.createTextNode(book.title);
-    titleDiv.appendChild(title);
-    bookCard.appendChild(titleDiv);
-
-    const authorDiv = document.createElement("div");
-    authorDiv.className = "book-author";
-    const author = document.createTextNode(`Author: ${book.author}`);
-    authorDiv.appendChild(author);
-    bookCard.appendChild(authorDiv);
-
-    const pagesDiv = document.createElement("div");
-    pagesDiv.className = "book-pages";
-    const pages = document.createTextNode(`Number of Pages: ${book.pages}`);
-    pagesDiv.appendChild(pages);
-    bookCard.appendChild(pagesDiv);
-
-    // read text 
-    
-    const readStatus = document.createElement("div");
-    readStatus.className = "book-status"
-    readStatus.textContent = "Read Status:";
-    bookCard.appendChild(readStatus);
-    // read status
-    const readButton = document.createElement("button");
-    readButton.setAttribute("data-index", index);
-    if (book.read === "true") {
-      readButton.textContent = "read";
-      readButton.className = "read-button";
-    } else {
-      readButton.textContent = "not read";
-      readButton.className = "read-button not-read-button"
-    }
-    bookCard.appendChild(readButton);
+    addElementToCard("title", bookCard, book);
+    addElementToCard("author", bookCard, book);
+    addElementToCard("pages", bookCard, book);
+    addReadStatusToCard(bookCard);
+    addReadButtonToCard(index, book, bookCard);
 
     // delete button
     const deleteButton = document.createElement("button");
