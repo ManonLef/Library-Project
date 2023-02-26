@@ -106,3 +106,9 @@ To facilitate this you will want to create the function that toggles a book’s 
 - added the same type of eventListener (with closest()) to the toggle read button. It works for now so that's okay
 
 All functionality is there now. The code could do with some refactoring but I will move on to the styling first since the code will need some state classes added as well.
+
+## 2023025
+- Did most of the styling
+- Refactored part of je JS by extracting some functions from the `displayBooks` function for readability
+- [ ] Future idea: incorporate ISBN (API?)
+- [ ] Future idea: Storage
