@@ -88,6 +88,12 @@ function addReadButtonToCard(index, book, bookCard) {
     statusButton.textContent = "not read";
     statusButton.className = "read-button not-read-button";
   }
+  // eventlistener uses e.target to identify exactly which button is clicked
+  // which is important since that button will have the data-index needed to toggle the correct button
+  statusButton.addEventListener("click", (e) => {
+    const statusToggle = e.target;
+    toggleRead(statusToggle);
+  });
   bookCard.appendChild(statusButton);
 }
 
@@ -96,7 +102,7 @@ function addDeleteButtonToCard(index, bookCard) {
   deleteButton.setAttribute("data-index", index);
   deleteButton.className = "delete-button";
   deleteButton.textContent = "✖";
-  // eventlistener uses e.target to identify exactly which button is clicked 
+  // eventlistener uses e.target to identify exactly which button is clicked
   // which is important since that button will have the data-index needed to remove the correct button
   deleteButton.addEventListener("click", (e) => {
     const bookDelButton = e.target;
@@ -146,7 +152,6 @@ function hideForm() {
   document.querySelector("header").classList.remove("blur");
   document.querySelector(".form-container").setAttribute("hidden", "");
 }
-
 // button to add book
 const addBookButton = document.getElementById("add-book");
 addBookButton.addEventListener("click", unhideForm);
@@ -155,27 +160,10 @@ addBookButton.addEventListener("click", unhideForm);
 const submitButton = document.getElementById("submit-book");
 submitButton.addEventListener("click", submitBook);
 
-// test for delete button
-// document.addEventListener("click", (e) => {
-//   const target = e.target.closest(".delete-button");
-//   if (target) {
-//     removeBook(target);
-//   }
-// });
-
-// same for read toggle
-document.addEventListener("click", (e) => {
-  const target = e.target.closest(".read-button");
-  if (target) {
-    toggleRead(target);
-  }
-});
-
 // default books loaded Í
-addBookToLibrary("The Lord of The Rings", "author 1", 111, "true");
-addBookToLibrary("book 1", "Very Long Author Papasididopoulos", 111, "true");
-addBookToLibrary("book 2", "author 2", 222, "false");
-addBookToLibrary("book 1", "author 1", 111, "true");
-addBookToLibrary("book 2", "author 2", 222, "false");
-addBookToLibrary("book 1", "author 1", 111, "true");
+addBookToLibrary("You Don't Know JS Yet: Get Started", "Kyle Simpson", 140, "false");
+addBookToLibrary("Atomic Habits", "James Clear", 320, "true");
+addBookToLibrary("The Subtle Art of Not Giving a F*ck", "Mark Manson", 212, "false");
+addBookToLibrary("The Life-Changing Magic of Tidying Up", "Marie Kondo", 213, "true");
+addBookToLibrary("How to Win Friends & Influence People", "Dale Carnegie", 304, "true");
 displayBooks();

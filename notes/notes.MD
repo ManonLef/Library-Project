@@ -112,3 +112,9 @@ All functionality is there now. The code could do with some refactoring but I wi
 - Refactored part of je JS by extracting some functions from the `displayBooks` function for readability
 - [ ] Future idea: incorporate ISBN (API?)
 - [ ] Future idea: Storage
+
+## 202306
+- [ ] Future idea: add sort options, more book info, when it was read etc.
+- [ ] Future idea: add popus to confirm deletion
+- [ ] UPDATE Form Modal to toggle background buttons disbles
+- [ ] Future idea: Make cards editable by opening modal and prefilling form for example
