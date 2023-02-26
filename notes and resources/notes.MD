@@ -60,8 +60,8 @@ I'm going to start working on the `add book` button this morning. I will have to
   - [ ] look into utilised action: "javascript:void(0);"
   - I'm kind of doubtful about this approach of building the whole form with JS. I have the first inputs working but I'll instead look into just building a form in the html and hiding it until the add book button is pressed. 
   - The above works like a charm. I'll continue working on the form
-  - [ ] edit input number for pages since it now has arrows
-  - [ ] `hideForm` and `unhideForm` functions can be integrated in their respective eventListeners
+  - [x] edit input number for pages since it now has arrows
+  - [x] `hideForm` and `unhideForm` functions can be integrated in their respective eventListeners
 3. and 4 
   - went smooth enough.
 
@@ -71,7 +71,7 @@ You will need to associate your DOM elements with the actual book objects in som
 
 ### Progress for `Add a button on each book’s display to remove the book from the library`
 I added a button to the displayBooks function which is getting awfully lengthy
-- [ ] refactor displayBooks to remove the card creation and make it more readable
+- [x] refactor displayBooks to remove the card creation and make it more readable
 Some pseudocode for pressing delete:
   - I will create an eventlistener for the delete buttons
   - the data-index will be the index number of the book to be deleted
@@ -85,7 +85,7 @@ Some things I ran into:
 - The `displayBooks` function could probably have a more descriptive name as well.
 
 ## 2023024
-- [ ] add eventlistener to code where delete button is dynamically created
+- [x] add eventlistener to code where delete button is dynamically created
 - the above because right now I feel like moving on so I can refactor the whole code later.
 
 ### step 5 `Add a button ro change the read status`
@@ -118,3 +118,5 @@ All functionality is there now. The code could do with some refactoring but I wi
 - [ ] Future idea: add popus to confirm deletion
 - [ ] UPDATE Form Modal to toggle background buttons disbles
 - [ ] Future idea: Make cards editable by opening modal and prefilling form for example
+
+I finished the project today. Refactored most of the code to be a lot more modular. I hope this will make it more usable in the future when adding functionality. 
