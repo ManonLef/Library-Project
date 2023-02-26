@@ -38,6 +38,7 @@ button:hover {
   font-weight: 500;
 }
 
+
 #add-book:hover {
   background-color: var(--color4);
   border: 2px solid white;
@@ -61,15 +62,16 @@ header {
 }
 
 .header > button {
-  position: absolute;
+  position: fixed;
   left: 20px;
+  z-index: 1;
 }
 
 #books-container {
   background-color: var(--color5);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
-  grid-template-rows: repeat(auto-fit, minmax(200px, 0.5fr));
+  grid-template-rows: repeat(auto-fit, minmax(250px, 0.5fr));
   justify-content: center;
   gap: 15px;
   padding: 20px;
@@ -155,9 +157,9 @@ header {
   color: white;
   border-radius: 5px;
   padding: 50px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
   transform: translate(-50%, -50%);
 }
 
@@ -187,7 +189,7 @@ form {
 input,
 select {
   height: 2rem;
-  border: transparent;
+  border: 2px solid var(--color3);
   outline: none;
   border-radius: 5px;
   font-size: 14px;
@@ -196,7 +198,7 @@ select {
 }
 
 input:focus {
-  outline: 2px solid var(--color2);
+  border: 2px solid var(--color2);
 }
 
 .blur {
@@ -213,13 +215,14 @@ footer {
   justify-content: space-around;
 }
 
+
+/* remove arrows in number input field for pages */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
 }
