@@ -1,10 +1,6 @@
-// global accessibles
 const myLibrary = [];
 
-
-
-// above this implement classes 
-function addBookToLibrary(title, author, pages, read) { // CLASS-REFACTOR
+function addBookToLibrary(title, author, pages, read) {
   const libraryBook = new Book(title, author, pages, read);
   myLibrary.push(libraryBook);
 }
@@ -15,7 +11,7 @@ function submitBook(event) {
   const author = document.getElementById("author");
   const pages = document.getElementById("pages");
   const read = document.getElementById("read");
-  addBookToLibrary(title.value, author.value, pages.value, read.value);  // CLASS-REFACTOR
+  addBookToLibrary(title.value, author.value, pages.value, read.value);
   displayBooks();
   // reset form
   document.querySelector("form").reset();
@@ -52,12 +48,14 @@ function removeBook(bookProto) {
   myLibrary.splice(bookProto.getAttribute("data-index"), 1);
   displayBooks();
 }
-// book constructor 
-function Book(title, author, pages, read) { // CLASS-REFACTOR
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 }
 
 // book card fill functions
@@ -161,12 +159,32 @@ addBookButton.addEventListener("click", unhideForm);
 
 // submit new book button functionality
 const submitButton = document.getElementById("submit-book");
-submitButton.addEventListener("click", submitBook); // CLASS-REFACTOR
+submitButton.addEventListener("click", submitBook);
 
 // default books loaded Í
-addBookToLibrary("You Don't Know JS Yet: Get Started", "Kyle Simpson", 140, "false");
+addBookToLibrary(
+  "You Don't Know JS Yet: Get Started",
+  "Kyle Simpson",
+  140,
+  "false"
+);
 addBookToLibrary("Atomic Habits", "James Clear", 320, "true");
-addBookToLibrary("The Subtle Art of Not Giving a F*ck", "Mark Manson", 212, "false");
-addBookToLibrary("The Life-Changing Magic of Tidying Up", "Marie Kondo", 213, "true");
-addBookToLibrary("How to Win Friends & Influence People", "Dale Carnegie", 304, "true");
+addBookToLibrary(
+  "The Subtle Art of Not Giving a F*ck",
+  "Mark Manson",
+  212,
+  "false"
+);
+addBookToLibrary(
+  "The Life-Changing Magic of Tidying Up",
+  "Marie Kondo",
+  213,
+  "true"
+);
+addBookToLibrary(
+  "How to Win Friends & Influence People",
+  "Dale Carnegie",
+  304,
+  "true"
+);
 displayBooks();
