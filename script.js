@@ -1,7 +1,10 @@
 // global accessibles
 const myLibrary = [];
 
-function addBookToLibrary(title, author, pages, read) {
+
+
+// above this implement classes 
+function addBookToLibrary(title, author, pages, read) { // CLASS-REFACTOR
   const libraryBook = new Book(title, author, pages, read);
   myLibrary.push(libraryBook);
 }
@@ -12,7 +15,7 @@ function submitBook(event) {
   const author = document.getElementById("author");
   const pages = document.getElementById("pages");
   const read = document.getElementById("read");
-  addBookToLibrary(title.value, author.value, pages.value, read.value);
+  addBookToLibrary(title.value, author.value, pages.value, read.value);  // CLASS-REFACTOR
   displayBooks();
   // reset form
   document.querySelector("form").reset();
@@ -49,8 +52,8 @@ function removeBook(bookProto) {
   myLibrary.splice(bookProto.getAttribute("data-index"), 1);
   displayBooks();
 }
-// book constructor
-function Book(title, author, pages, read) {
+// book constructor 
+function Book(title, author, pages, read) { // CLASS-REFACTOR
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -158,7 +161,7 @@ addBookButton.addEventListener("click", unhideForm);
 
 // submit new book button functionality
 const submitButton = document.getElementById("submit-book");
-submitButton.addEventListener("click", submitBook);
+submitButton.addEventListener("click", submitBook); // CLASS-REFACTOR
 
 // default books loaded Í
 addBookToLibrary("You Don't Know JS Yet: Get Started", "Kyle Simpson", 140, "false");
